@@ -85,7 +85,7 @@ class _GameScreenState extends State<GameScreen> {
           ),
           child: Stack(
             children: [
-              if (_gameState.status == GameStatus.waiting) const StartScreen(),
+              if (_gameState.status == GameStatus.waiting) const StartWidget(),
               if (_gameState.status == GameStatus.playing ||
                   _gameState.status == GameStatus.gameOver) ...[
                 ..._obstacles.map(
@@ -104,7 +104,7 @@ class _GameScreenState extends State<GameScreen> {
                   child: Center(child: ScoreWidget(score: _gameState.score)),
                 ),
               if (_gameState.status == GameStatus.gameOver)
-                GameOverDialog(
+                GameOverWidget(
                   score: _gameState.score,
                   onRestart: () {
                     setState(() {

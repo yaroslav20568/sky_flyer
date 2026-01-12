@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class GameOverDialog extends StatelessWidget {
+class GameOverWidget extends StatelessWidget {
   final int score;
   final VoidCallback onRestart;
 
-  const GameOverDialog({
+  const GameOverWidget({
     super.key,
     required this.score,
     required this.onRestart,
