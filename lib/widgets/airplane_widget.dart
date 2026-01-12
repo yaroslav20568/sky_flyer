@@ -14,7 +14,7 @@ class AirplaneWidget extends StatelessWidget {
       left: airplane.x,
       top: airplane.y,
       child: Transform.rotate(
-        angle: airplane.rotation,
+        angle: 1.5708 + airplane.rotation,
         child: Container(
           width: GameConstants.airplaneSize,
           height: GameConstants.airplaneSize,

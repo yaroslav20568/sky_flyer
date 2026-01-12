@@ -30,13 +30,6 @@ class _GameScreenState extends State<GameScreen> {
       return;
     }
 
-    _airplane = Airplane(
-      x: GameConstants.initialAirplaneX,
-      y: screenHeight / 2,
-    );
-    _gameState = GameState();
-    _obstacles = [];
-
     _gameService?.dispose();
     _gameService = GameService(
       onUpdate: (airplane, gameState, obstacles) {
@@ -114,7 +107,18 @@ class _GameScreenState extends State<GameScreen> {
                 GameOverDialog(
                   score: _gameState.score,
                   onRestart: () {
+                    setState(() {
+                      _gameState = GameState();
+                      _airplane = Airplane(
+                        x: GameConstants.initialAirplaneX,
+                        y: screenSize.height / 2,
+                      );
+                      _obstacles = [];
+                    });
                     _initializeGame(screenSize.width, screenSize.height);
+                    WidgetsBinding.instance.addPostFrameCallback((_) {
+                      _gameService?.start();
+                    });
                   },
                 ),
             ],

@@ -30,6 +30,7 @@ class GameService {
 
   void start() {
     _gameState = _gameState.copyWith(status: GameStatus.playing);
+    onUpdate(_airplane, _gameState, _obstacles);
     _gameTimer = Timer.periodic(const Duration(milliseconds: 16), (timer) {
       if (_gameState.status == GameStatus.playing) {
         _airplane.update(GameConstants.gravity);

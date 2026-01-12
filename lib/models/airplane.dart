@@ -25,7 +25,7 @@ class Airplane {
   }
 
   void jump(double jumpVelocity) {
-    velocity = -jumpVelocity;
+    velocity = jumpVelocity;
   }
 
   Airplane copyWith({
