@@ -23,7 +23,7 @@ class GameOverWidget extends StatelessWidget {
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 40),
               constraints: BoxConstraints(
-                maxHeight: MediaQuery.of(context).size.height * 0.9,
+                maxHeight: MediaQuery.of(context).size.height * 0.8,
               ),
               decoration: BoxDecoration(
                 gradient: const LinearGradient(
@@ -40,82 +40,85 @@ class GameOverWidget extends StatelessWidget {
                   ),
                 ],
               ),
-              child: Scrollbar(
-                thumbVisibility: true,
-                child: SingleChildScrollView(
-                  padding: const EdgeInsets.all(30),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const Icon(
-                        Icons.sentiment_dissatisfied,
-                        size: 60,
-                        color: Colors.white,
-                      ),
-                      const SizedBox(height: 20),
-                      const Text(
-                        'Game Over!',
-                        style: TextStyle(
-                          fontSize: 32,
-                          fontWeight: FontWeight.bold,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Scrollbar(
+                  thumbVisibility: true,
+                  child: SingleChildScrollView(
+                    padding: const EdgeInsets.all(30),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Icon(
+                          Icons.sentiment_dissatisfied,
+                          size: 60,
                           color: Colors.white,
-                          letterSpacing: 1.2,
                         ),
-                      ),
-                      const SizedBox(height: 30),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 30,
-                          vertical: 15,
+                        const SizedBox(height: 20),
+                        const Text(
+                          'Game Over!',
+                          style: TextStyle(
+                            fontSize: 32,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            letterSpacing: 1.2,
+                          ),
                         ),
-                        decoration: BoxDecoration(
-                          color: Colors.white.withValues(alpha: 0.2),
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            const Icon(
-                              Icons.star,
-                              color: Colors.amber,
-                              size: 32,
-                            ),
-                            const SizedBox(width: 12),
-                            Text(
-                              'Score: $score',
-                              style: const TextStyle(
-                                fontSize: 28,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(height: 30),
-                      ElevatedButton(
-                        onPressed: onRestart,
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.white,
-                          foregroundColor: const Color(0xFF357ABD),
+                        const SizedBox(height: 30),
+                        Container(
                           padding: const EdgeInsets.symmetric(
-                            horizontal: 40,
+                            horizontal: 30,
                             vertical: 15,
                           ),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25),
+                          decoration: BoxDecoration(
+                            color: Colors.white.withValues(alpha: 0.2),
+                            borderRadius: BorderRadius.circular(15),
                           ),
-                          elevation: 5,
-                        ),
-                        child: const Text(
-                          'Play Again',
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              const Icon(
+                                Icons.star,
+                                color: Colors.amber,
+                                size: 32,
+                              ),
+                              const SizedBox(width: 12),
+                              Text(
+                                'Score: $score',
+                                style: const TextStyle(
+                                  fontSize: 28,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                      ),
-                    ],
+                        const SizedBox(height: 30),
+                        ElevatedButton(
+                          onPressed: onRestart,
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.white,
+                            foregroundColor: const Color(0xFF357ABD),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 40,
+                              vertical: 15,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(25),
+                            ),
+                            elevation: 5,
+                          ),
+                          child: const Text(
+                            'Play Again',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
