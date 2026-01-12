@@ -71,57 +71,60 @@ class _GameScreenState extends State<GameScreen> {
     }
 
     return Scaffold(
-      body: GestureDetector(
-        onTap: _handleTap,
-        child: Container(
-          width: screenSize.width,
-          height: screenSize.height,
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [Color(0xFF87CEEB), Color(0xFFE0F6FF)],
+      body: SafeArea(
+        child: GestureDetector(
+          onTap: _handleTap,
+          child: Container(
+            width: screenSize.width,
+            height: screenSize.height,
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [Color(0xFF87CEEB), Color(0xFFE0F6FF)],
+              ),
             ),
-          ),
-          child: Stack(
-            children: [
-              if (_gameState.status == GameStatus.waiting) const StartWidget(),
-              if (_gameState.status == GameStatus.playing ||
-                  _gameState.status == GameStatus.gameOver) ...[
-                ..._obstacles.map(
-                  (obstacle) => ObstacleWidget(
-                    obstacle: obstacle,
-                    screenHeight: screenSize.height,
+            child: Stack(
+              children: [
+                if (_gameState.status == GameStatus.waiting)
+                  const StartWidget(),
+                if (_gameState.status == GameStatus.playing ||
+                    _gameState.status == GameStatus.gameOver) ...[
+                  ..._obstacles.map(
+                    (obstacle) => ObstacleWidget(
+                      obstacle: obstacle,
+                      screenHeight: screenSize.height,
+                    ),
                   ),
-                ),
-                AirplaneWidget(airplane: _airplane),
+                  AirplaneWidget(airplane: _airplane),
+                ],
+                if (_gameState.status == GameStatus.playing)
+                  Positioned(
+                    top: 50,
+                    left: 0,
+                    right: 0,
+                    child: Center(child: ScoreWidget(score: _gameState.score)),
+                  ),
+                if (_gameState.status == GameStatus.gameOver)
+                  GameOverWidget(
+                    score: _gameState.score,
+                    onRestart: () {
+                      setState(() {
+                        _gameState = GameState();
+                        _airplane = Airplane(
+                          x: GameConstants.initialAirplaneX,
+                          y: screenSize.height / 2,
+                        );
+                        _obstacles = [];
+                      });
+                      _initializeGame(screenSize.width, screenSize.height);
+                      WidgetsBinding.instance.addPostFrameCallback((_) {
+                        _gameService?.start();
+                      });
+                    },
+                  ),
               ],
-              if (_gameState.status == GameStatus.playing)
-                Positioned(
-                  top: 50,
-                  left: 0,
-                  right: 0,
-                  child: Center(child: ScoreWidget(score: _gameState.score)),
-                ),
-              if (_gameState.status == GameStatus.gameOver)
-                GameOverWidget(
-                  score: _gameState.score,
-                  onRestart: () {
-                    setState(() {
-                      _gameState = GameState();
-                      _airplane = Airplane(
-                        x: GameConstants.initialAirplaneX,
-                        y: screenSize.height / 2,
-                      );
-                      _obstacles = [];
-                    });
-                    _initializeGame(screenSize.width, screenSize.height);
-                    WidgetsBinding.instance.addPostFrameCallback((_) {
-                      _gameService?.start();
-                    });
-                  },
-                ),
-            ],
+            ),
           ),
         ),
       ),
