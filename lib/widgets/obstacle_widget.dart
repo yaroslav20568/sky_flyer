@@ -14,6 +14,15 @@ class ObstacleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (screenHeight <= 0 || obstacle.topHeight <= 0) {
+      return const SizedBox.shrink();
+    }
+
+    final bottomHeight = screenHeight - obstacle.bottomY;
+    if (bottomHeight <= 0) {
+      return const SizedBox.shrink();
+    }
+
     return Stack(
       children: [
         Positioned(
@@ -21,7 +30,7 @@ class ObstacleWidget extends StatelessWidget {
           top: 0,
           child: Container(
             width: obstacle.width,
-            height: obstacle.topHeight,
+            height: obstacle.topHeight.clamp(0.0, screenHeight),
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
@@ -49,7 +58,7 @@ class ObstacleWidget extends StatelessWidget {
           top: obstacle.bottomY,
           child: Container(
             width: obstacle.width,
-            height: screenHeight - obstacle.bottomY,
+            height: bottomHeight.clamp(0.0, screenHeight),
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topCenter,

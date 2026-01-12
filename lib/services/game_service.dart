@@ -59,11 +59,25 @@ class GameService {
   }
 
   void _generateObstacles() {
+    if (_screenWidth <= 0 || _screenHeight <= 0) {
+      return;
+    }
+
     if (_obstacles.isEmpty || _obstacles.last.x < _screenWidth - 400) {
       final minTopHeight = 100.0;
       final maxTopHeight = _screenHeight - GameConstants.obstacleGap - 100.0;
+
+      if (maxTopHeight <= minTopHeight) {
+        return;
+      }
+
       final topHeight =
           minTopHeight + _random.nextDouble() * (maxTopHeight - minTopHeight);
+
+      final bottomY = topHeight + GameConstants.obstacleGap;
+      if (bottomY >= _screenHeight) {
+        return;
+      }
 
       _obstacles.add(
         Obstacle(

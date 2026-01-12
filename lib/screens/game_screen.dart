@@ -26,6 +26,10 @@ class _GameScreenState extends State<GameScreen> {
   }
 
   void _initializeGame(double screenWidth, double screenHeight) {
+    if (screenWidth <= 0 || screenHeight <= 0) {
+      return;
+    }
+
     _airplane = Airplane(
       x: GameConstants.initialAirplaneX,
       y: screenHeight / 2,
@@ -65,9 +69,11 @@ class _GameScreenState extends State<GameScreen> {
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
 
-    if (_gameService == null) {
+    if (_gameService == null && screenSize.width > 0 && screenSize.height > 0) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        _initializeGame(screenSize.width, screenSize.height);
+        if (mounted && screenSize.width > 0 && screenSize.height > 0) {
+          _initializeGame(screenSize.width, screenSize.height);
+        }
       });
     }
 
