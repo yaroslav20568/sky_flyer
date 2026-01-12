@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:sky_flyer/constants/index.dart';
+
 class ScoreWidget extends StatelessWidget {
   final int score;
 
@@ -10,24 +12,24 @@ class ScoreWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
       decoration: BoxDecoration(
-        color: Colors.black.withValues(alpha: 0.5),
+        color: AppColors.blackWithAlpha(0.5),
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
-          color: Colors.white.withValues(alpha: 0.3),
+          color: AppColors.whiteWithAlpha(0.3),
           width: 2,
         ),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Icon(Icons.star, color: Colors.amber, size: 24),
+          const Icon(Icons.star, color: AppColors.amber, size: 24),
           const SizedBox(width: 8),
           Text(
             '$score',
             style: const TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: AppColors.white,
               letterSpacing: 1.2,
             ),
           ),

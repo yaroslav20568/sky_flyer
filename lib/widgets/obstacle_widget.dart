@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:sky_flyer/constants/index.dart';
 import 'package:sky_flyer/models/index.dart';
 
 class ObstacleWidget extends StatelessWidget {
@@ -35,16 +36,16 @@ class ObstacleWidget extends StatelessWidget {
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                colors: [Colors.green.shade800, Colors.green.shade600],
+                colors: AppColors.obstacleGradientTop,
               ),
-              border: Border.all(color: Colors.green.shade900, width: 4),
+              border: Border.all(color: AppColors.greenDarker, width: 4),
               borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.circular(15),
                 bottomRight: Radius.circular(15),
               ),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.3),
+                  color: AppColors.blackWithAlpha(0.3),
                   blurRadius: 6,
                   offset: const Offset(0, 3),
                 ),
@@ -63,16 +64,16 @@ class ObstacleWidget extends StatelessWidget {
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                colors: [Colors.green.shade600, Colors.green.shade800],
+                colors: AppColors.obstacleGradientBottom,
               ),
-              border: Border.all(color: Colors.green.shade900, width: 4),
+              border: Border.all(color: AppColors.greenDarker, width: 4),
               borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(15),
                 topRight: Radius.circular(15),
               ),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.3),
+                  color: AppColors.blackWithAlpha(0.3),
                   blurRadius: 6,
                   offset: const Offset(0, -3),
                 ),
@@ -90,7 +91,7 @@ class _CloudPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = Colors.white.withValues(alpha: 0.2)
+      ..color = AppColors.whiteWithAlpha(0.2)
       ..style = PaintingStyle.fill;
 
     final cloudCount = (size.width / 30).floor();

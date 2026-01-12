@@ -22,19 +22,19 @@ class AirplaneWidget extends StatelessWidget {
             gradient: const LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [Color(0xFF4A90E2), Color(0xFF357ABD)],
+              colors: AppColors.airplaneGradient,
             ),
             shape: BoxShape.circle,
-            border: Border.all(color: Colors.white, width: 2),
+            border: Border.all(color: AppColors.white, width: 2),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withValues(alpha: 0.3),
+                color: AppColors.blackWithAlpha(0.3),
                 blurRadius: 8,
                 offset: const Offset(0, 4),
               ),
             ],
           ),
-          child: const Icon(Icons.flight, color: Colors.white, size: 30),
+          child: const Icon(Icons.flight, color: AppColors.white, size: 30),
         ),
       ),
     );

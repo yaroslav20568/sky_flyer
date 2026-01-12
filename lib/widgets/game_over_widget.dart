@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:sky_flyer/constants/index.dart';
+
 class GameOverWidget extends StatelessWidget {
   final int score;
   final VoidCallback onRestart;
@@ -16,7 +18,7 @@ class GameOverWidget extends StatelessWidget {
       onTap: () {},
       behavior: HitTestBehavior.opaque,
       child: Container(
-        color: Colors.black.withValues(alpha: 0.7),
+        color: AppColors.blackWithAlpha(0.7),
         child: Center(
           child: GestureDetector(
             onTap: () {},
@@ -29,12 +31,12 @@ class GameOverWidget extends StatelessWidget {
                 gradient: const LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
-                  colors: [Color(0xFF4A90E2), Color(0xFF357ABD)],
+                  colors: AppColors.airplaneGradient,
                 ),
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.5),
+                    color: AppColors.blackWithAlpha(0.5),
                     blurRadius: 20,
                     offset: const Offset(0, 10),
                   ),
@@ -52,7 +54,7 @@ class GameOverWidget extends StatelessWidget {
                         const Icon(
                           Icons.sentiment_dissatisfied,
                           size: 60,
-                          color: Colors.white,
+                          color: AppColors.white,
                         ),
                         const SizedBox(height: 20),
                         const Text(
@@ -60,7 +62,7 @@ class GameOverWidget extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 32,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: AppColors.white,
                             letterSpacing: 1.2,
                           ),
                         ),
@@ -71,7 +73,7 @@ class GameOverWidget extends StatelessWidget {
                             vertical: 15,
                           ),
                           decoration: BoxDecoration(
-                            color: Colors.white.withValues(alpha: 0.2),
+                            color: AppColors.whiteWithAlpha(0.2),
                             borderRadius: BorderRadius.circular(15),
                           ),
                           child: Row(
@@ -79,7 +81,7 @@ class GameOverWidget extends StatelessWidget {
                             children: [
                               const Icon(
                                 Icons.star,
-                                color: Colors.amber,
+                                color: AppColors.amber,
                                 size: 32,
                               ),
                               const SizedBox(width: 12),
@@ -88,7 +90,7 @@ class GameOverWidget extends StatelessWidget {
                                 style: const TextStyle(
                                   fontSize: 28,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.white,
+                                  color: AppColors.white,
                                 ),
                               ),
                             ],
@@ -98,8 +100,8 @@ class GameOverWidget extends StatelessWidget {
                         ElevatedButton(
                           onPressed: onRestart,
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            foregroundColor: const Color(0xFF357ABD),
+                            backgroundColor: AppColors.white,
+                            foregroundColor: AppColors.airplaneBlueEnd,
                             padding: const EdgeInsets.symmetric(
                               horizontal: 40,
                               vertical: 15,

@@ -81,7 +81,7 @@ class _GameScreenState extends State<GameScreen> {
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                colors: [Color(0xFF87CEEB), Color(0xFFE0F6FF)],
+                colors: AppColors.gameScreenGradient,
               ),
             ),
             child: Stack(
