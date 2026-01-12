@@ -106,7 +106,7 @@ class _GameScreenState extends State<GameScreen> {
                     child: Center(child: ScoreWidget(score: _gameState.score)),
                   ),
                 if (_gameState.status == GameStatus.gameOver)
-                  GameOverWidget(
+                  GameOverDialog(
                     score: _gameState.score,
                     onRestart: () {
                       setState(() {

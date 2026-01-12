@@ -18,12 +18,20 @@ class AppColors {
   static const Color black54 = Colors.black54;
   static const Color amber = Colors.amber;
 
-  static Color whiteWithAlpha(double alpha) => Colors.white.withValues(alpha: alpha);
-  static Color blackWithAlpha(double alpha) => Colors.black.withValues(alpha: alpha);
+  static Color whiteWithAlpha(double alpha) =>
+      Colors.white.withValues(alpha: alpha);
+  static Color blackWithAlpha(double alpha) =>
+      Colors.black.withValues(alpha: alpha);
 
   static const List<Color> gameScreenGradient = [skyBlue, lightSkyBlue];
-  static const List<Color> startScreenGradient = [startScreenBlueTop, startScreenBlueBottom];
-  static const List<Color> airplaneGradient = [airplaneBlueStart, airplaneBlueEnd];
+  static const List<Color> startScreenGradient = [
+    startScreenBlueTop,
+    startScreenBlueBottom,
+  ];
+  static const List<Color> airplaneGradient = [
+    airplaneBlueStart,
+    airplaneBlueEnd,
+  ];
   static List<Color> obstacleGradientTop = [greenDark, greenMedium];
   static List<Color> obstacleGradientBottom = [greenMedium, greenDark];
 }

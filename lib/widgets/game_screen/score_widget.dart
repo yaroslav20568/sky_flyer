@@ -14,10 +14,7 @@ class ScoreWidget extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.blackWithAlpha(0.5),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(
-          color: AppColors.whiteWithAlpha(0.3),
-          width: 2,
-        ),
+        border: Border.all(color: AppColors.whiteWithAlpha(0.3), width: 2),
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,

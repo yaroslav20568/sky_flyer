@@ -28,7 +28,11 @@ class StartWidget extends StatelessWidget {
               ),
               child: Transform.rotate(
                 angle: 1.5708,
-                child: const Icon(Icons.flight, size: 80, color: AppColors.white),
+                child: const Icon(
+                  Icons.flight,
+                  size: 80,
+                  color: AppColors.white,
+                ),
               ),
             ),
             const SizedBox(height: 30),
