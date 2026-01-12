@@ -86,17 +86,7 @@ class _GameScreenState extends State<GameScreen> {
           ),
           child: Stack(
             children: [
-              if (_gameState.status == GameStatus.waiting)
-                const Center(
-                  child: Text(
-                    'Нажмите, чтобы начать',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+              if (_gameState.status == GameStatus.waiting) const StartScreen(),
               if (_gameState.status == GameStatus.playing ||
                   _gameState.status == GameStatus.gameOver) ...[
                 ..._obstacles.map(
@@ -110,59 +100,16 @@ class _GameScreenState extends State<GameScreen> {
               if (_gameState.status == GameStatus.playing)
                 Positioned(
                   top: 50,
-                  left: 20,
-                  child: Text(
-                    'Счет: ${_gameState.score}',
-                    style: const TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                      shadows: [
-                        Shadow(
-                          offset: Offset(2, 2),
-                          blurRadius: 4,
-                          color: Colors.black54,
-                        ),
-                      ],
-                    ),
-                  ),
+                  left: 0,
+                  right: 0,
+                  child: Center(child: ScoreWidget(score: _gameState.score)),
                 ),
               if (_gameState.status == GameStatus.gameOver)
-                Container(
-                  color: Colors.black54,
-                  child: Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text(
-                          'Игра окончена!',
-                          style: TextStyle(
-                            fontSize: 32,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                        const SizedBox(height: 20),
-                        Text(
-                          'Счет: ${_gameState.score}',
-                          style: const TextStyle(
-                            fontSize: 24,
-                            color: Colors.white,
-                          ),
-                        ),
-                        const SizedBox(height: 20),
-                        ElevatedButton(
-                          onPressed: () {
-                            _initializeGame(
-                              screenSize.width,
-                              screenSize.height,
-                            );
-                          },
-                          child: const Text('Играть снова'),
-                        ),
-                      ],
-                    ),
-                  ),
+                GameOverDialog(
+                  score: _gameState.score,
+                  onRestart: () {
+                    _initializeGame(screenSize.width, screenSize.height);
+                  },
                 ),
             ],
           ),

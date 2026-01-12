@@ -19,11 +19,22 @@ class AirplaneWidget extends StatelessWidget {
           width: GameConstants.airplaneSize,
           height: GameConstants.airplaneSize,
           decoration: BoxDecoration(
-            color: Colors.white,
+            gradient: const LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [Color(0xFF4A90E2), Color(0xFF357ABD)],
+            ),
             shape: BoxShape.circle,
-            border: Border.all(color: Colors.blue, width: 3),
+            border: Border.all(color: Colors.white, width: 2),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.3),
+                blurRadius: 8,
+                offset: const Offset(0, 4),
+              ),
+            ],
           ),
-          child: const Icon(Icons.flight, color: Colors.blue, size: 30),
+          child: const Icon(Icons.flight, color: Colors.white, size: 30),
         ),
       ),
     );
