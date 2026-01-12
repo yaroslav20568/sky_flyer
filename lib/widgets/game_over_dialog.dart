@@ -48,7 +48,7 @@ class GameOverDialog extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   const Text(
-                    'Игра окончена!',
+                    'Game Over!',
                     style: TextStyle(
                       fontSize: 32,
                       fontWeight: FontWeight.bold,
@@ -72,7 +72,7 @@ class GameOverDialog extends StatelessWidget {
                         const Icon(Icons.star, color: Colors.amber, size: 32),
                         const SizedBox(width: 12),
                         Text(
-                          'Счет: $score',
+                          'Score: $score',
                           style: const TextStyle(
                             fontSize: 28,
                             fontWeight: FontWeight.bold,
@@ -98,7 +98,7 @@ class GameOverDialog extends StatelessWidget {
                       elevation: 5,
                     ),
                     child: const Text(
-                      'Играть снова',
+                      'Play Again',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,

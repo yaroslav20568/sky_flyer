@@ -24,7 +24,10 @@ class StartScreen extends StatelessWidget {
                 shape: BoxShape.circle,
                 border: Border.all(color: Colors.white, width: 3),
               ),
-              child: const Icon(Icons.flight, size: 80, color: Colors.white),
+              child: Transform.rotate(
+                angle: 1.5708,
+                child: const Icon(Icons.flight, size: 80, color: Colors.white),
+              ),
             ),
             const SizedBox(height: 30),
             const Text(
@@ -57,7 +60,7 @@ class StartScreen extends StatelessWidget {
                   Icon(Icons.touch_app, color: Colors.white, size: 28),
                   SizedBox(width: 12),
                   Text(
-                    'Нажмите, чтобы начать',
+                    'Tap to Start',
                     style: TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
