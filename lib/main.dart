@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'screens/index.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -12,10 +14,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Sky Flyer',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: const Scaffold(body: Center(child: Text('Sky Flyer'))),
+      home: const GameScreen(),
     );
   }
 }
