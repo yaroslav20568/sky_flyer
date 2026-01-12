@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'screens/index.dart';
+import 'package:sky_flyer/screens/index.dart';
 
 void main() {
   runApp(const MyApp());

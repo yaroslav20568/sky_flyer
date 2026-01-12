@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../constants/index.dart';
-import '../models/index.dart';
+import 'package:sky_flyer/constants/index.dart';
+import 'package:sky_flyer/models/index.dart';
 
 class AirplaneWidget extends StatelessWidget {
   final Airplane airplane;
