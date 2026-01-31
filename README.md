@@ -6,6 +6,10 @@
 
 Sky Flyer - это простая аркадная игра, в которой игрок управляет самолетом, нажимая на экран, чтобы поднять его вверх. Цель - пролететь как можно дальше, избегая столкновений с препятствиями и набирая очки.
 
+## Демонстрация
+
+![Демонстрация работы](video/demo.gif)
+
 ## Что было сделано
 
 - Создана структура проекта с разделением на экраны, виджеты, модели, сервисы и константы
@@ -45,6 +49,10 @@ A Flutter game application in the style of Flappy Bird where the player controls
 ## Project Description
 
 Sky Flyer is a simple arcade game where the player controls an airplane by tapping the screen to make it go up. The goal is to fly as far as possible, avoiding collisions with obstacles and scoring points.
+
+## Demo
+
+![Demo](video/demo.gif)
 
 ## What Was Done
 
